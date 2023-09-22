@@ -13,8 +13,9 @@ public class RouteConfig {
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("users", r -> r.path("/user/**")
-                .uri("lb://user"))
+                .route("auth", r -> r.path("/auth/**").uri("lb://auth"))
+                .route("user", r -> r.path("/user/**").uri("lb://user"))
+                .route("vehicle", r -> r.path("/vehicle/**").uri("lb://vehicle"))
                 .build();
     }
 
